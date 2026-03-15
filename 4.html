@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pays de l'Union Européenne</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.container{
+background:white;
+color:#0f172a;
+max-width:600px;
+margin:auto;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+font-weight:600;
+margin-bottom:30px;
+}
+
+select{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+margin-bottom:20px;
+}
+
+button{
+background:#1e3a8a;
+color:white;
+border:none;
+padding:12px 25px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#0f172a;
+}
+
+.result{
+margin-top:30px;
+font-size:18px;
+}
+
+img{
+width:80px;
+margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Pays de l'Union Européenne</h1>
+
+<select id="countrySelect">
+<option value="">-- Choisissez un pays --</option>
+<option value="France">France</option>
+<option value="Allemagne">Allemagne</option>
+<option value="Italie">Italie</option>
+<option value="Espagne">Espagne</option>
+<option value="Belgique">Belgique</option>
+<option value="Pays-Bas">Pays-Bas</option>
+<option value="Luxembourg">Luxembourg</option>
+<option value="Portugal">Portugal</option>
+<option value="Autriche">Autriche</option>
+<option value="Irlande">Irlande</option>
+<option value="Suède">Suède</option>
+<option value="Finlande">Finlande</option>
+<option value="Danemark">Danemark</option>
+<option value="Pologne">Pologne</option>
+<option value="Grèce">Grèce</option>
+</select>
+
+<button onclick="showCountry()">Afficher les informations</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+const countries = {
+
+France:{
+population:"67 millions",
+capital:"Paris",
+flag:"https://flagcdn.com/w320/fr.png"
+},
+
+Allemagne:{
+population:"84 millions",
+capital:"Berlin",
+flag:"https://flagcdn.com/w320/de.png"
+},
+
+Italie:{
+population:"59 millions",
+capital:"Rome",
+flag:"https://flagcdn.com/w320/it.png"
+},
+
+Espagne:{
+population:"48 millions",
+capital:"Madrid",
+flag:"https://flagcdn.com/w320/es.png"
+},
+
+Belgique:{
+population:"11,7 millions",
+capital:"Bruxelles",
+flag:"https://flagcdn.com/w320/be.png"
+},
+
+"Pays-Bas":{
+population:"18 millions",
+capital:"Amsterdam",
+flag:"https://flagcdn.com/w320/nl.png"
+},
+
+Luxembourg:{
+population:"660 000",
+capital:"Luxembourg",
+flag:"https://flagcdn.com/w320/lu.png"
+},
+
+Portugal:{
+population:"10 millions",
+capital:"Lisbonne",
+flag:"https://flagcdn.com/w320/pt.png"
+},
+
+Autriche:{
+population:"9 millions",
+capital:"Vienne",
+flag:"https://flagcdn.com/w320/at.png"
+},
+
+Irlande:{
+population:"5,2 millions",
+capital:"Dublin",
+flag:"https://flagcdn.com/w320/ie.png"
+},
+
+Suède:{
+population:"10,5 millions",
+capital:"Stockholm",
+flag:"https://flagcdn.com/w320/se.png"
+},
+
+Finlande:{
+population:"5,5 millions",
+capital:"Helsinki",
+flag:"https://flagcdn.com/w320/fi.png"
+},
+
+Danemark:{
+population:"5,9 millions",
+capital:"Copenhague",
+flag:"https://flagcdn.com/w320/dk.png"
+},
+
+Pologne:{
+population:"38 millions",
+capital:"Varsovie",
+flag:"https://flagcdn.com/w320/pl.png"
+},
+
+Grèce:{
+population:"10,4 millions",
+capital:"Athènes",
+flag:"https://flagcdn.com/w320/gr.png"
+}
+
+};
+
+function showCountry(){
+
+const country = document.getElementById("countrySelect").value;
+const result = document.getElementById("result");
+
+if(!country){
+result.innerHTML="Veuillez choisir un pays.";
+return;
+}
+
+const data = countries[country];
+
+result.innerHTML=`
+
+<h2>${country}</h2>
+<img src="${data.flag}">
+<p><strong>Population :</strong> ${data.population}</p>
+<p><strong>Capitale :</strong> ${data.capital}</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+
+</html>
